@@ -1,0 +1,86 @@
+<Window x:Class="Diego_P2_AP1.UI.Registro.rRegistro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diego_P2_AP1.UI.Registro"
+        mc:Ignorable="d"
+        Title="Registro" Height="522" Width="500"  WindowStartupLocation="CenterScreen">
+   
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <!--ID-->
+            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                <Label Content="ID"/>
+                <TextBox x:Name="IdTextBox" Margin="20,0,0,0" Width="60"  Height="26" Text="{Binding OrdenId}" />
+                <Button x:Name="BuscarButton"  Margin="30,0,0,0" Width="80" Height="27" Click = "BuscarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Imagenes/Buscar.png" Height="20"/>
+                        <Label Content = "buscar"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <!--det-->
+            <GroupBox Margin="0,5,0,0">
+                <StackPanel >
+                    <StackPanel  Width="473" Margin="10,10,0,0" Orientation="Horizontal" HorizontalAlignment="Left">
+
+                        <!--Agregar Fila-->
+                        <Button x:Name="Agregar"  Click = "AgregarButton_Click" Margin="10,24,0,0" Width="33"  Height="26">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Imagenes/agregar.png" />
+                            </StackPanel>
+                        </Button>
+                        <!--Remover Fila-->
+                        <Button x:Name="Remover"  Click = "RemoverButton_Click" Margin="10,24,0,0"  Width="33"  Height="26">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Imagenes/Remover.png" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel >
+
+                    <!--Datos-->
+                    <StackPanel  Width="458" Margin="10,20,0,0" Orientation="Horizontal" HorizontalAlignment="Left" >
+                        <DataGrid x:Name="DataGrid" ItemsSource=""  Height="150" Width="458" IsReadOnly="True" AutoGenerateColumns="False" >
+                            <DataGrid.Columns>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <!--Total-->
+            <!-- <StackPanel  Margin="350,10,0,0"   Orientation="Horizontal" Width="123" HorizontalAlignment="Left">
+                <Label Content="Total:" HorizontalAlignment="Right"  />
+                <TextBox x:Name="TextBox" Height="25" Width="81" Text="{Binding Monto}" IsReadOnly="True"/>
+            </StackPanel> -->
+
+            <!--botones Nuevo, guardar y eliminar -->
+            <StackPanel Orientation = "Horizontal" Margin= "10,10,0,0">
+                <!--Nuevo-->
+                <Button x:Name="NuevoButton"  Margin="15,0,0,0" Width="80" Height="30" Click = "NuevoButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Imagenes/nuevo.png" Height="20"/>
+                        <Label Content = "Nuevo"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Guardar-->
+                <Button x:Name="GuardarButton"  Margin="15,0,0,0" Width="80" Height="30"  Click = "GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Imagenes/guardar.png" Height="20"/>
+                        <Label Content = "Guardar"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Eliminar-->
+                <Button x:Name="EliminarButton"  Margin="15,0,0,0" Width="80" Height="30" Click = "EliminarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Imagenes/eliminar.png" Height="20"/>
+                        <Label Content = "Eliminar"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+           
+        </StackPanel>
+    </Grid>
+</Window>
