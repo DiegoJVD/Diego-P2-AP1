@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diego_P2_AP1.UI.Consulta"
         mc:Ignorable="d"
-        Title="Consulta" Height="522" Width="500"  WindowStartupLocation="CenterScreen">
+        Title="Consulta de Proyectos" Height="522" Width="500"  WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
 

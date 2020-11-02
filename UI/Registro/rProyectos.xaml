@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diego_P2_AP1.UI.Registro"
         mc:Ignorable="d"
-        Title="Registro" Height="522" Width="500"  WindowStartupLocation="CenterScreen">
+        Title="Registro de Proyectos" Height="600" Width="500"  WindowStartupLocation="CenterScreen">
    
     <Grid>
         <StackPanel Orientation="Vertical">
             <!--ID-->
             <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
-                <Label Content="ID"/>
-                <TextBox x:Name="IdTextBox" Margin="20,0,0,0" Width="60"  Height="26" Text="{Binding OrdenId}" />
+                <Label Content="Proyecto Id"/>
+                <TextBox x:Name="IdTextBox" Margin="20,0,0,0" Width="60"  Height="26" Text="{Binding ProyectoId}" />
                 <Button x:Name="BuscarButton"  Margin="30,0,0,0" Width="80" Height="27" Click = "BuscarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Imagenes/Buscar.png" Height="20"/>
@@ -20,11 +20,38 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
+
+             <!--Fecha-->
+            <StackPanel  Width="300" Margin="10,20,0,0" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Label Content="Fecha" />
+                <DatePicker x:Name="FechaDatePicker"  Margin="50,0,0,0" Height="27" VerticalAlignment="Center" SelectedDate="{Binding Fecha}" Width="170" />
+            </StackPanel>
+
+            <!--Descripcion-->
+            <StackPanel  Width="300" Height = "80"  Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,20,0,0">
+                <Label Content="Descripcion" Margin="0,0,0,0"/>
+                <TextBox  x:Name="DescripcionTextBox" Margin="20,-25,0,0" Height="50" Width="170"  Text="{Binding Descripcion}"/>
+            </StackPanel>
             <!--det-->
             <GroupBox Margin="0,5,0,0">
                 <StackPanel >
                     <StackPanel  Width="473" Margin="10,10,0,0" Orientation="Horizontal" HorizontalAlignment="Left">
+                        <!--TiposTarea-->
+                        <StackPanel  Width="150"  Orientation="Vertical">
+                            <Label Content="Tipos de Tarea:" />
+                            <ComboBox  x:Name="TiposTareaComboBox" Height="25" SelectedValue="{Binding Id}" Width="150"  />
+                        </StackPanel>
 
+                        <!--Requerimientos -->
+                        <StackPanel   Margin="10,0,0,0" Orientation="Vertical">
+                            <Label Content="Requerimiento:" />
+                            <TextBox x:Name="RequerimientoTextBox" Height="25"    Width="150" Text="{Binding Requerimiento}" />
+                        </StackPanel>
+                        <!--Tiempo-->
+                        <StackPanel   Margin="10,0,0,0" Orientation="Vertical">
+                            <Label Content="Tiempo:" />
+                            <TextBox x:Name="TiempoTextBox" Height="25"  Width="50" Text="{Binding Tiempo}"/>
+                        </StackPanel>
                         <!--Agregar Fila-->
                         <Button x:Name="Agregar"  Click = "AgregarButton_Click" Margin="10,24,0,0" Width="33"  Height="26">
                             <StackPanel Orientation="Horizontal">
@@ -48,11 +75,11 @@
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
-            <!--Total-->
-            <!-- <StackPanel  Margin="350,10,0,0"   Orientation="Horizontal" Width="123" HorizontalAlignment="Left">
-                <Label Content="Total:" HorizontalAlignment="Right"  />
+            <!--Tiempo total-->
+            <StackPanel  Margin="300,10,0,0"   Orientation="Horizontal" Width="200" HorizontalAlignment="Left">
+                <Label Content="Tiempo Total:" HorizontalAlignment="Right"  />
                 <TextBox x:Name="TextBox" Height="25" Width="81" Text="{Binding Monto}" IsReadOnly="True"/>
-            </StackPanel> -->
+            </StackPanel>
 
             <!--botones Nuevo, guardar y eliminar -->
             <StackPanel Orientation = "Horizontal" Margin= "10,10,0,0">

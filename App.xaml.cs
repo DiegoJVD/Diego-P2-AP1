@@ -13,5 +13,11 @@ namespace Diego_P2_AP1
     /// </summary>
     public partial class App : Application
     {
+        private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show($"Ocurrio una excepción :( {e.Exception.Message}", "");
+            e.Handled = true;
+        }
+    
     }
 }
