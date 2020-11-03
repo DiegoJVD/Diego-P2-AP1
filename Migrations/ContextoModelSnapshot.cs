@@ -28,6 +28,9 @@ namespace Diego_P2_AP1.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Total")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("ProyectoId");
 
                     b.ToTable("Proyectos");
@@ -48,12 +51,14 @@ namespace Diego_P2_AP1.Migrations
                     b.Property<int>("Tiempo")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TipoDetalle")
+                    b.Property<int>("TipoId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProyectoId");
+
+                    b.HasIndex("TipoId");
 
                     b.ToTable("ProyectosDetalle");
                 });
@@ -94,6 +99,12 @@ namespace Diego_P2_AP1.Migrations
                     b.HasOne("Diego_P2_AP1.Entidades.Proyectos", null)
                         .WithMany("Detalle")
                         .HasForeignKey("ProyectoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Diego_P2_AP1.Entidades.TiposTarea", null)
+                        .WithMany("Detalle")
+                        .HasForeignKey("TipoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

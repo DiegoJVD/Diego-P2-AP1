@@ -29,7 +29,7 @@ namespace Diego_P2_AP1
 
          public void rMenuItem_CLick(object render, RoutedEventArgs e)
         {
-            rRegistro registro = new rRegistro();
+            rProyectos registro = new rProyectos();
             registro.Show();
         }
          public void cMenuItem_CLick(object render, RoutedEventArgs e)

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Diego_P2_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20201102231029_Inicial")]
+    [Migration("20201103002154_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,6 +29,9 @@ namespace Diego_P2_AP1.Migrations
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Total")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ProyectoId");
 
@@ -50,12 +53,14 @@ namespace Diego_P2_AP1.Migrations
                     b.Property<int>("Tiempo")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TipoDetalle")
+                    b.Property<int>("TipoId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProyectoId");
+
+                    b.HasIndex("TipoId");
 
                     b.ToTable("ProyectosDetalle");
                 });
@@ -96,6 +101,12 @@ namespace Diego_P2_AP1.Migrations
                     b.HasOne("Diego_P2_AP1.Entidades.Proyectos", null)
                         .WithMany("Detalle")
                         .HasForeignKey("ProyectoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Diego_P2_AP1.Entidades.TiposTarea", null)
+                        .WithMany("Detalle")
+                        .HasForeignKey("TipoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

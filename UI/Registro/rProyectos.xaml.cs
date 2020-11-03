@@ -4,16 +4,22 @@ using System.Windows.Documents;
 using System.Collections.Generic;
 using System;
 using Diego_P2_AP1.UI.Registro;
+using Diego_P2_AP1.Entidades;
+using Diego_P2_AP1.BLL;
 
 namespace Diego_P2_AP1.UI.Registro
 {
-    public partial class rRegistro : Window 
+    public partial class rProyectos : Window 
     {
         Proyectos proyecto;
-        public rRegistro(){
+        public rProyectos(){
             InitializeComponent();
-            proyecto = new proyectos();
-            this.dataContext = proyecto;
+            proyecto = new Proyectos();
+            this.DataContext = proyecto;
+
+             TiposTareaComboBox.ItemsSource = TiposTareaBLL.GetList(p => true);
+             TiposTareaComboBox.SelectedValuePath = "TipoID";
+             TiposTareaComboBox.DisplayMemberPath = "Descripcion";
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
@@ -27,20 +33,32 @@ namespace Diego_P2_AP1.UI.Registro
             //     return;
             // }
                 
-             
                 ProyectosDetalle detalle = new ProyectosDetalle(
                 proyecto.ProyectoId,
                 RequerimientoTextBox.Text,
-                Convert.ToInt(CantidadTextBox.Text)
+                Convert.ToInt32(TiempoTextBox.Text),
+                Convert.ToInt32(TiposTareaComboBox.SelectedValue.ToString())
+
            );
+
+          
 
             proyecto.Detalle.Add(detalle);
             proyecto.Total += detalle.Tiempo;
 
             Actualizar();
 
-            CostoTextBox.Clear();
-            CantidadTextBox.Clear();
+            RequerimientoTextBox.Clear();
+            TiempoTextBox.Clear();
+
+            DataGrid.ItemsSource = null;
+            DataGrid.ItemsSource = proyecto.Detalle;
+        }
+
+         private void Actualizar()
+        {
+            this.DataContext = null;
+            this.DataContext = proyecto;
         }
 
         private void RemoverButton_Click(object sender, RoutedEventArgs e)

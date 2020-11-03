@@ -14,7 +14,8 @@ namespace Diego_P2_AP1.Migrations
                     ProyectoId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Fecha = table.Column<DateTime>(nullable: false),
-                    Descripcion = table.Column<string>(nullable: true)
+                    Descripcion = table.Column<string>(nullable: true),
+                    Total = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,7 +44,7 @@ namespace Diego_P2_AP1.Migrations
                     ProyectoId = table.Column<int>(nullable: false),
                     Requerimiento = table.Column<string>(nullable: true),
                     Tiempo = table.Column<int>(nullable: false),
-                    TipoDetalle = table.Column<int>(nullable: false)
+                    TipoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,6 +54,12 @@ namespace Diego_P2_AP1.Migrations
                         column: x => x.ProyectoId,
                         principalTable: "Proyectos",
                         principalColumn: "ProyectoId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProyectosDetalle_TiposTarea_TipoId",
+                        column: x => x.TipoId,
+                        principalTable: "TiposTarea",
+                        principalColumn: "TipoId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -75,6 +82,11 @@ namespace Diego_P2_AP1.Migrations
                 name: "IX_ProyectosDetalle_ProyectoId",
                 table: "ProyectosDetalle",
                 column: "ProyectoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProyectosDetalle_TipoId",
+                table: "ProyectosDetalle",
+                column: "TipoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -83,10 +95,10 @@ namespace Diego_P2_AP1.Migrations
                 name: "ProyectosDetalle");
 
             migrationBuilder.DropTable(
-                name: "TiposTarea");
+                name: "Proyectos");
 
             migrationBuilder.DropTable(
-                name: "Proyectos");
+                name: "TiposTarea");
         }
     }
 }
