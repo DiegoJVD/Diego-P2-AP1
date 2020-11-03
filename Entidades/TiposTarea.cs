@@ -20,5 +20,10 @@ namespace Diego_P2_AP1.Entidades
             this.Descripcion = Descripcion;
         }
 
+         public TiposTarea()
+        {
+          
+        }
+
     }
 }

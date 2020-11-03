@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Diego_P2_AP1.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20201103002154_Inicial")]
+    [Migration("20201103045931_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,6 +52,9 @@ namespace Diego_P2_AP1.Migrations
 
                     b.Property<int>("Tiempo")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Tipo")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("TipoId")
                         .HasColumnType("INTEGER");

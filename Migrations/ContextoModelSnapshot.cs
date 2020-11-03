@@ -51,6 +51,9 @@ namespace Diego_P2_AP1.Migrations
                     b.Property<int>("Tiempo")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Tipo")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("TipoId")
                         .HasColumnType("INTEGER");
 

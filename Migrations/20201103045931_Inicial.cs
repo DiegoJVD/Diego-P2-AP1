@@ -44,7 +44,8 @@ namespace Diego_P2_AP1.Migrations
                     ProyectoId = table.Column<int>(nullable: false),
                     Requerimiento = table.Column<string>(nullable: true),
                     Tiempo = table.Column<int>(nullable: false),
-                    TipoId = table.Column<int>(nullable: false)
+                    TipoId = table.Column<int>(nullable: false),
+                    Tipo = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

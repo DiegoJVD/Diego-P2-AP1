@@ -70,8 +70,8 @@
                     <StackPanel  Width="458" Margin="10,20,0,0" Orientation="Horizontal" HorizontalAlignment="Left" >
                         <DataGrid x:Name="DataGrid" ItemsSource="Binding Detalle"  Height="150" Width="458" IsReadOnly="True" AutoGenerateColumns="False" >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Tipo Id" Binding="{Binding Id}" Width="*"/>
-                                <DataGridTextColumn Header="Tipo Tarea"  Width="*"/>
+                                <DataGridTextColumn x:Name = "a" Header="Tipo Id" Binding="{Binding TipoId}" Width="*"/>
+                                <DataGridTextColumn Header="Tipo Tarea" Binding="{Binding Tipo}"  Width="*"/>
                                 <DataGridTextColumn Header="Requerimeinto" Binding="{Binding Requerimiento}" Width="*"/>
                                 <DataGridTextColumn Header="Tiempo" Binding="{Binding Tiempo}" Width="*"/>
                             </DataGrid.Columns>
@@ -82,7 +82,7 @@
             <!--Tiempo total-->
             <StackPanel  Margin="300,10,0,0"   Orientation="Horizontal" Width="200" HorizontalAlignment="Left">
                 <Label Content="Tiempo Total:" HorizontalAlignment="Right"  />
-                <TextBox x:Name="TextBox" Height="25" Width="81" Text="{Binding Monto}" IsReadOnly="True"/>
+                <TextBox x:Name="TotalTextBox" Height="25" Width="81" Text="{Binding Total}" IsReadOnly="True"/>
             </StackPanel>
 
             <!--botones Nuevo, guardar y eliminar -->

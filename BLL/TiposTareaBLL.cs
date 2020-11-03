@@ -32,5 +32,29 @@ namespace Diego_P2_AP1.BLL
 
             return list;
         }
+
+        public static TiposTarea Buscar(int id)
+        {
+            Contexto contexto = new Contexto();
+            TiposTarea tipos;
+
+            try
+            {
+                tipos = contexto.TiposTarea
+                    .Include(p => p.Detalle)
+                    .Where(p => p.TipoId == id)
+                    .SingleOrDefault();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return tipos;
+        }
     }
 }

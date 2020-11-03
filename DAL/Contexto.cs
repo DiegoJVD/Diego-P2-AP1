@@ -10,8 +10,6 @@ namespace Diego_P2_AP1.DAL
     {
         public DbSet<Proyectos> Proyectos { get; set; }
 
-        public DbSet<ProyectosDetalle> ProyectosDetalle { get; set; }
-
         public DbSet<TiposTarea> TiposTarea { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

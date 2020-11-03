@@ -141,25 +141,26 @@ namespace Diego_P2_AP1.BLL
             return found;
         }
 
-        public static List<Proyectos> ObtenerLista(Expression<Func<Proyectos, bool>> criterio)
+      
+         public static List<Proyectos> GetList(Expression<Func<Proyectos, bool>> criterio)
         {
-            List<Proyectos> lista = new List<Proyectos>();
-            Contexto contexto = new Contexto();
+            List<Proyectos> list = new List<Proyectos>();
+            Contexto context = new Contexto();
 
-            try
+            try 
             {
-                lista = contexto.Proyectos.Where(criterio).AsNoTracking().ToList();
-            }
-            catch
+                list = context.Proyectos.Where(criterio).AsNoTracking().ToList<Proyectos>();
+            } 
+            catch  
             {
                 throw;
-            }
-            finally
+            } 
+            finally 
             {
-                contexto.Dispose();
+                context.Dispose();
             }
 
-            return lista;
+            return list;
         }
     }
 }

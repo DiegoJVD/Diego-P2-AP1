@@ -12,10 +12,10 @@
             <Menu Height="20" >
                 <!--Submenu-->
                 <MenuItem Header="Registrar">
-                    <MenuItem x:Name = "rMenuItem" Header="Registrar "  Click="rMenuItem_CLick"/>  
+                    <MenuItem x:Name = "rMenuItem" Header="Registrar Proyectos"  Click="rMenuItem_CLick"/>  
                 </MenuItem>
                 <MenuItem Header="Consultar">
-                    <MenuItem x:Name = "cMenuItem" Header="Consultar "  Click="cMenuItem_CLick"/>
+                    <MenuItem x:Name = "cMenuItem" Header="Consultar Proyectos"  Click="cMenuItem_CLick"/>
                 </MenuItem>
             </Menu>
         </StackPanel>
